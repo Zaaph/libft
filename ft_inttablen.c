@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_tablen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emihoubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 13:53:48 by emihoubi          #+#    #+#             */
-/*   Updated: 2016/01/11 16:07:53 by emihoubi         ###   ########.fr       */
+/*   Created: 2016/01/13 16:49:52 by emihoubi          #+#    #+#             */
+/*   Updated: 2016/01/13 16:51:32 by emihoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
-
-char	*ft_strmap(char const *s, char (*f)(char))
+int		ft_inttablen(int *tab)
 {
-	char	*str;
-	size_t	i;
+	int i;
 
-	if (!(str = (char*)malloc(sizeof(char) * ft_strlen(s) + 1)))
-		return (NULL);
 	i = 0;
-	while (i < ft_strlen(s) && s[i])
-	{
-		str[i] = f(s[i]);
+	while (tab[i])
 		i++;
-	}
-	str[i] = '\0';
-	return (str);
+	return (i);
 }

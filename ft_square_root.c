@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_square.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emihoubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 13:53:48 by emihoubi          #+#    #+#             */
-/*   Updated: 2016/01/11 16:07:53 by emihoubi         ###   ########.fr       */
+/*   Created: 2016/01/13 17:07:29 by emihoubi          #+#    #+#             */
+/*   Updated: 2016/01/13 17:18:56 by emihoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
-
-char	*ft_strmap(char const *s, char (*f)(char))
+int		ft_square_root(int x)
 {
-	char	*str;
-	size_t	i;
+	int i;
 
-	if (!(str = (char*)malloc(sizeof(char) * ft_strlen(s) + 1)))
-		return (NULL);
 	i = 0;
-	while (i < ft_strlen(s) && s[i])
+	if (x == 1)
+		return (1);
+	while ((i * i) != x && i < 46341 && i < x)
 	{
-		str[i] = f(s[i]);
 		i++;
+		if ((i * i) == x)
+			return (i);
 	}
-	str[i] = '\0';
-	return (str);
+	return (-1);
 }

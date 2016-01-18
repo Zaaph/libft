@@ -10,24 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 	size_t c;
 
-	i = ft_strlen(s1) + 1;
+	i = ft_strlen(s1);
 	j = 0;
 	c = 0;
-	while (s1[i] && c < n)
+	if (n > 0)
 	{
-		s1[i] = s2[j];
-		j++;
-		i++;
-		c++;
+		while (s2[j] && c < n)
+		{
+			s1[i++] = s2[j++];
+			c++;
+		}
 	}
+	s1[i] = '\0';
 	return (s1);
 }

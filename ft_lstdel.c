@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emihoubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 13:53:48 by emihoubi          #+#    #+#             */
-/*   Updated: 2016/01/11 16:07:53 by emihoubi         ###   ########.fr       */
+/*   Created: 2015/12/30 14:50:12 by emihoubi          #+#    #+#             */
+/*   Updated: 2015/12/30 14:50:16 by emihoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	char	*str;
-	size_t	i;
+	t_list	*tmp;
+	t_list	*next;
 
-	if (!(str = (char*)malloc(sizeof(char) * ft_strlen(s) + 1)))
-		return (NULL);
-	i = 0;
-	while (i < ft_strlen(s) && s[i])
+	if (*alst == NULL)
+		return ;
+	del((*alst)->content, (*alst)->content_size);
+	next = (*alst)->next;
+	free(*alst);
+	while (next)
 	{
-		str[i] = f(s[i]);
-		i++;
+		del(next->content, next->content_size);
+		tmp = next;
+		next = next->next;
 	}
-	str[i] = '\0';
-	return (str);
+	free(tmp);
+	*alst = NULL;
 }

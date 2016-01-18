@@ -19,7 +19,8 @@ void	*ft_memalloc(size_t size)
 
 	if (size > 2147483647)
 		return (NULL);
-	if (!(i = (void*)malloc(sizeof(*i) * (size + 1))))
+	if (!(i = (void*)malloc(sizeof(*i) * size + 1)))
 		return (NULL);
+	ft_bzero(i, size);
 	return (i);
 }

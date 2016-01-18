@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emihoubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 13:53:48 by emihoubi          #+#    #+#             */
-/*   Updated: 2016/01/11 16:07:53 by emihoubi         ###   ########.fr       */
+/*   Created: 2016/01/13 17:20:12 by emihoubi          #+#    #+#             */
+/*   Updated: 2016/01/13 17:31:20 by emihoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
-
-char	*ft_strmap(char const *s, char (*f)(char))
+int		ft_power(int x, int y)
 {
-	char	*str;
-	size_t	i;
+	int i;
+	int j;
 
-	if (!(str = (char*)malloc(sizeof(char) * ft_strlen(s) + 1)))
-		return (NULL);
 	i = 0;
-	while (i < ft_strlen(s) && s[i])
+	j = x;
+	while (i < y - 1)
 	{
-		str[i] = f(s[i]);
+		x *= j;
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	return (x);
 }

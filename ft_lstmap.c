@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emihoubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 13:53:48 by emihoubi          #+#    #+#             */
-/*   Updated: 2016/01/11 16:07:53 by emihoubi         ###   ########.fr       */
+/*   Created: 2016/01/04 14:22:01 by emihoubi          #+#    #+#             */
+/*   Updated: 2016/01/04 14:22:04 by emihoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strmap(char const *s, char (*f)(char))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char	*str;
-	size_t	i;
+	t_list	*fresh;
+	t_list	*res;
+	t_list	*tmp;
 
-	if (!(str = (char*)malloc(sizeof(char) * ft_strlen(s) + 1)))
-		return (NULL);
-	i = 0;
-	while (i < ft_strlen(s) && s[i])
+	fresh = NULL;
+	while (lst)
 	{
-		str[i] = f(s[i]);
-		i++;
+		tmp = f(lst);
+		if (!fresh)
+		{
+			fresh = tmp;
+			res = fresh;
+			fresh->next = NULL;
+		}
+		else
+		{
+			fresh->next = tmp;
+			tmp->next = NULL;
+			fresh = fresh->next;
+		}
+		lst = lst->next;
 	}
-	str[i] = '\0';
-	return (str);
+	return (res);
 }

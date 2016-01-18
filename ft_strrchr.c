@@ -6,7 +6,7 @@
 /*   By: emihoubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 12:09:42 by emihoubi          #+#    #+#             */
-/*   Updated: 2015/11/30 13:57:49 by emihoubi         ###   ########.fr       */
+/*   Updated: 2016/01/11 17:32:07 by emihoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
-	char *s2;
+	int		i;
+	char	*s2;
 
 	i = ft_strlen(s);
 	s2 = (char *)s;

@@ -6,45 +6,36 @@
 /*   By: emihoubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 17:19:54 by emihoubi          #+#    #+#             */
-/*   Updated: 2015/12/02 18:49:14 by emihoubi         ###   ########.fr       */
+/*   Updated: 2016/01/13 16:45:49 by emihoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
-#include <string.h>
-
-static void	ft_condition(char *ss1, char *ss2, size_t k)
-{
-	if (*ss1 != *ss2)
-	{
-		ss1++;
-		k++;
-	}
-}
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t	k;
-	char	*ss1;
-	char	*ss2;
+	size_t	i;
+	size_t	j;
 
-	k = 0;
-	ss1 = (char *)s1;
-	ss2 = (char *)s2;
-	if (*ss2 == '\0')
-		return (ss1);
-	while (*ss1 && k < n)
+	i = -1;
+	j = 0;
+	if (s2[0] == '\0')
+		return ((char*)s1);
+	while (s1[++i] && i < n && s1[0] != '\0')
 	{
-		ft_condition(ss1, ss2, k);
-		while (*ss2 == *ss1 && *ss2 && *ss1 && k < n)
+		while (s1[i] && s2[j] && s1[i] != s2[j] && i < n)
+			i++;
+		if (s1[i] == 0 && s1[i + 1] != '\0')
+			break ;
+		while (s1[i] && s2[j] && s2[j] == s1[i + j] &&
+				(i + j) < n)
 		{
-			ss1++;
-			ss2++;
-			k++;
-			if (*ss2 == '\0')
-				return (ss1 - ft_strlen(s2));
+			j++;
+			if ((!s2[j] || !s1[i + j]) && j == ft_strlen(s2))
+				return ((char*)&s1[i]);
 		}
-		ss2 = (char *)s2;
+		j = 0;
 	}
 	return (NULL);
 }

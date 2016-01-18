@@ -6,7 +6,7 @@
 /*   By: emihoubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 11:34:48 by emihoubi          #+#    #+#             */
-/*   Updated: 2015/11/30 13:42:25 by emihoubi         ###   ########.fr       */
+/*   Updated: 2016/01/11 16:01:27 by emihoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	unsigned char x;
+
+	x = (unsigned char)c;
+	write(1, &x, 1);
 }

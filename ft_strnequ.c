@@ -6,7 +6,7 @@
 /*   By: emihoubi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:09:16 by emihoubi          #+#    #+#             */
-/*   Updated: 2015/12/04 15:08:07 by emihoubi         ###   ########.fr       */
+/*   Updated: 2016/01/11 16:13:21 by emihoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_strnequ(char const *s1, char const *s2, size_t n)
 	while ((i < n) && s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i])
-		  return (0);
+			return (0);
 		i++;
 	}
 	return (1);

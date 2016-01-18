@@ -52,6 +52,17 @@ SRC = 	ft_memset.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c \
+	ft_lstnew.c \
+	ft_lstdelone.c \
+	ft_lstdel.c \
+	ft_lstadd.c \
+	ft_lstiter.c \
+	ft_lstmap.c \
+	ft_absvalue.c \
+	ft_inttablen.c \
+	ft_lstlen.c \
+	ft_power.c \
+	ft_square_root.c \
 
 OBJ = 	ft_memset.o \
 	ft_bzero.o \
@@ -105,6 +116,17 @@ OBJ = 	ft_memset.o \
 	ft_putstr_fd.o \
 	ft_putendl_fd.o \
 	ft_putnbr_fd.o \
+	ft_lstnew.o \
+	ft_lstdelone.o \
+	ft_lstdel.o \
+	ft_lstadd.o \
+	ft_lstiter.o \
+	ft_lstmap.o \
+	ft_absvalue.o \
+	ft_inttablen.o \
+	ft_lstlen.o \
+	ft_power.o \
+	ft_square_root.o \
 
 all : $(NAME)
 
